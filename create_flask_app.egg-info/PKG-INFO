@@ -1,0 +1,16 @@
+Metadata-Version: 1.2
+Name: create-flask-app
+Version: 1.0.0
+Summary: Generate a new Flask app project.
+Home-page: UNKNOWN
+Author: Majdi Mahfoud
+Author-email: elm.majidi@gmail.com
+License: MIT
+Description: UNKNOWN
+Keywords: Flask,template,generate
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.8
+Requires: Flask
+Requires: gunicorn
+Requires-Python: >=3.6
