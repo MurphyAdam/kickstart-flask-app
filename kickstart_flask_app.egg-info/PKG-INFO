@@ -1,15 +1,15 @@
 Metadata-Version: 1.2
-Name: create-flask-app
+Name: kickstart-flask-app
 Version: 1.0.0
 Summary: Generate a new Flask app project.
 Home-page: UNKNOWN
 Author: Majdi Mahfoud
 Author-email: elm.majidi@gmail.com
 License: MIT
-Description: # create-flask-app
+Description: # kickstart-flask-app
         
         This is a simple package to kickstart a new Flask app project
-        [create-flask-app](https://github.com/MurphyAdam/create-flask-app)
+        [kickstart-flask-app](https://github.com/MurphyAdam/kickstart-flask-app)
 Keywords: Flask,template,generate
 Platform: UNKNOWN
 Classifier: Programming Language :: Python
