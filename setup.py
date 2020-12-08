@@ -8,7 +8,7 @@ except IOError:
     long_description = ""
 
 setup(
-    name="create_flask_app",
+    name="create-flask-app",
     version="1.0.0",
     description="Generate a new Flask app project.",
     license="MIT",
