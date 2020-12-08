@@ -58,7 +58,6 @@ class KickstartFlaskApp():
 
 
     def write_content(self, file, content, path) -> None:
-        print(file, content, path)
         with open(f'{path}/{file}', 'w') as file:
             if version_info >= (3, 0):
                 file.write(content)
@@ -114,5 +113,5 @@ class KickstartFlaskApp():
         self.populate_project_files()
 
 if __name__ == '__main__':
-    create_flask_app = KickstartFlaskApp()
-    create_flask_app.main()
+    kickstart_flask_app = KickstartFlaskApp()
+    kickstart_flask_app.main()
