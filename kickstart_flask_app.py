@@ -14,8 +14,6 @@ from sys import version_info
 from getpass import getuser
 import os
 
-def hello():
-    print('hello')
 
 class KickstartFlaskApp():
 
@@ -114,8 +112,10 @@ class KickstartFlaskApp():
         self.create_project_structure()
         self.populate_project_files()
 
+def console() -> None:
+    kickstart_flask_app = KickstartFlaskApp()
+    kickstart_flask_app.main()
+
 if __name__ == '__main__':
-    def console() -> None:
-        kickstart_flask_app = KickstartFlaskApp()
-        kickstart_flask_app.main()
-    console()
+    kickstart_flask_app = KickstartFlaskApp()
+    kickstart_flask_app.main()
