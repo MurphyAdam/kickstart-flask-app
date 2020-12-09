@@ -9,7 +9,7 @@ except IOError:
 
 setup(
     name="kickstart_flask_app",
-    version="0.0.8",
+    version="0.0.9",
     description="Generate a new Flask app project.",
     license="MIT",
     author="Majdi Mahfoud",
@@ -23,7 +23,7 @@ setup(
     zip_safe = False,
     entry_points={
         'console_scripts': [
-            'kickstart-flask-app = kickstart_flask_app.KickstartFlaskApp:main'
+            'kickstart-flask-app = kickstart_flask_app:KickstartFlaskApp.main'
         ],
     },
     classifiers=[
