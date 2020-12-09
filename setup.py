@@ -23,7 +23,7 @@ setup(
     zip_safe = False,
     entry_points={
         'console_scripts': [
-            'kickstart-flask-app = kickstart_flask_app:console'
+            'kickstart-flask-app = kickstart_flask_app:hello'
         ],
     },
     classifiers=[

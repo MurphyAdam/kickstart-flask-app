@@ -14,6 +14,8 @@ from sys import version_info
 from getpass import getuser
 import os
 
+def hello():
+    print('hello')
 
 class KickstartFlaskApp():
 
