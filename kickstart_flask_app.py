@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from .templates import (wsgi_template,
+from templates import (wsgi_template,
     procfile_template,
     tests_template,
     app_init_template,
