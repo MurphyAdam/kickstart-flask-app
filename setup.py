@@ -8,8 +8,8 @@ except IOError:
     long_description = ""
 
 setup(
-    name="kickstart-flask-app",
-    version="1.0.4",
+    name="kickstart_flask_app",
+    version="1.0.5",
     description="Generate a new Flask app project.",
     license="MIT",
     author="Majdi Mahfoud",
