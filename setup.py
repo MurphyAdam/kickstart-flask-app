@@ -9,7 +9,7 @@ except IOError:
 
 setup(
     name="kickstart_flask_app",
-    version="1.0.0",
+    version="1.1.0",
     description="Generate a new Flask app project.",
     license="MIT",
     author="Majdi Mahfoud",
