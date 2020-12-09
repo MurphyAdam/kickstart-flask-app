@@ -11,6 +11,9 @@ __pycache__
 # testing
 /coverage
 
+# instructions
+instructions.txt
+
 # misc
 .DS_Store
 .env.local
