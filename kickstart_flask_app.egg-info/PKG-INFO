@@ -1,6 +1,6 @@
 Metadata-Version: 1.2
 Name: kickstart-flask-app
-Version: 1.0.5
+Version: 1.0.0
 Summary: Generate a new Flask app project.
 Home-page: https://github.com/MurphyAdam/kickstart-flask-app
 Author: Majdi Mahfoud
@@ -14,6 +14,4 @@ Keywords: Flask,template,generate
 Platform: UNKNOWN
 Classifier: Programming Language :: Python
 Classifier: Programming Language :: Python :: 3.8
-Requires: Flask
-Requires: gunicorn
 Requires-Python: >=3.6
