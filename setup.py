@@ -9,20 +9,22 @@ except IOError:
 
 setup(
     name="kickstart_flask_app",
-    version="1.0.5",
+    version="0.0.8",
     description="Generate a new Flask app project.",
     license="MIT",
     author="Majdi Mahfoud",
     author_email="elm.majidi@gmail.com",
     url="https://github.com/MurphyAdam/kickstart-flask-app",
     keywords=['Flask', 'template', 'generate'],
-    requires=['Flask', 'gunicorn'],
+    py_modules=["kickstart_flask_app"],
     packages=find_packages(),
     install_requires=[],
     long_description=long_description,
+    zip_safe = False,
     entry_points={
         'console_scripts': [
-            'kickstart-flask-app = kickstart_flask_app.KickstartFlaskApp:main'],
+            'kickstart-flask-app = kickstart_flask_app:main'
+        ],
     },
     classifiers=[
         "Programming Language :: Python",

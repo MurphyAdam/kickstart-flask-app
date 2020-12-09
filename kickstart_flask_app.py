@@ -113,5 +113,7 @@ class KickstartFlaskApp():
         self.populate_project_files()
 
 if __name__ == '__main__':
-    kickstart_flask_app = KickstartFlaskApp()
-    kickstart_flask_app.main()
+    def console() -> None:
+        kickstart_flask_app = KickstartFlaskApp()
+        kickstart_flask_app.main()
+    console()
