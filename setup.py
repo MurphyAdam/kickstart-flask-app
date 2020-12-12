@@ -1,12 +1,6 @@
 # -*- coding: utf-8 -*-
 from setuptools import setup, find_packages
 
-try:
-    with open("README.md", "r", encoding="utf-8") as fh:
-        long_description = fh.read()
-except IOError:
-    long_description = ""
-
 setup(
     name="kickstart_flask_app",
     version="1.1.2",
@@ -19,7 +13,7 @@ setup(
     py_modules=["kickstart_flask_app"],
     packages=find_packages(),
     install_requires=[],
-    long_description=long_description,
+    long_description='Please refer to README for docs',
     zip_safe = False,
     entry_points={
         'console_scripts': [
