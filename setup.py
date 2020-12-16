@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="kickstart_flask_app",
-    version="1.1.2",
+    version="1.1.3",
     description="Generate a new Flask app project.",
     license="MIT",
     author="Majdi Mahfoud",

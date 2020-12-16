@@ -24,7 +24,7 @@ class KickstartFlaskApp():
         self.description: str = ''
         self.author: str = getuser()
         self.main_bp_name: str = 'main_bp'
-        self.setup_heroku_deployment_files: bool = False
+        self.setup_heroku_deployment_files: str = 'yes'
         self.fields_names = [f'Project name. Default ({self.project_name})', 
             f'Root app name. Default ({self.root_app_name})', 
             f'App version. Default ({self.app_version})', 
@@ -32,7 +32,7 @@ class KickstartFlaskApp():
             f'Author. Default ({self.author})', 
             f'Main Blueprint name. Default ({self.main_bp_name})', 
             f'Setup Heroku deployment files. Default ({self.setup_heroku_deployment_files})']
-        self.runtime = version_info
+        self.runtime: str = ".".join(map(str, version_info[:3]))
         self.flask_files = ['wsgi.py', 
             '__init__.py', 
             'routes.py', 
@@ -43,8 +43,10 @@ class KickstartFlaskApp():
         ]
         self.flask_files_paths = []
         self.flask_files_templates = []
-        self.heroku_files = ['runtime.txt', 'Procfile']
 
+        self.heroku_files = ['runtime.txt', 'Procfile']
+        self.heroku_files_paths = []
+        self.heroku_files_templates = []
 
     def get_input(self, input_msg, default=None):
         if version_info >= (3, 0):
@@ -74,6 +76,12 @@ class KickstartFlaskApp():
             self.flask_files_templates):
             self.write_content(flask_file, flask_file_template, flask_file_path)
 
+    def setup_heroku_files(self) -> None:
+        for heroku_file, heroku_file_path, heroku_file_template in zip(self.heroku_files, 
+            self.heroku_files_paths,
+            self.heroku_files_templates):
+            self.write_content(heroku_file, heroku_file_template, heroku_file_path)
+
     def main(self):
 
         self.project_name = self.get_input(f'Project name. Default ({self.project_name})', 
@@ -88,7 +96,7 @@ class KickstartFlaskApp():
             default=self.author)
         self.main_bp_name = self.get_input(f'Main Blueprint name. Default ({self.main_bp_name})', 
             default=self.main_bp_name)
-        self.setup_heroku_deployment_files = self.get_input(f'Setup Heroku deployment files. Default ({self.setup_heroku_deployment_files})', 
+        self.setup_heroku_deployment_files = self.get_input(f'Setup Heroku deployment files (yes/no). Default ({self.setup_heroku_deployment_files})', 
             default=self.setup_heroku_deployment_files)
         
         self.flask_files_paths = [f'{self.project_name}', 
@@ -104,13 +112,20 @@ class KickstartFlaskApp():
             app_init_template.substitute(app_name=self.root_app_name, main_bp_name=self.main_bp_name) , 
             main_bp_routes_template.substitute(app_name=self.root_app_name, main_bp_name=self.main_bp_name), 
             main_bp_init_template.substitute(app_name=self.root_app_name, main_bp_name=self.main_bp_name), 
-            config_template.substitute(app_name=self.root_app_name, runtime=self.runtime), 
+            config_template.substitute(app_name=self.root_app_name, project_name=self.project_name, runtime=self.runtime), 
             tests_template.substitute(), 
             requirements_template.substitute()
         ]
 
         self.create_project_structure()
         self.populate_project_files()
+
+        if 'y'.lower() in self.setup_heroku_deployment_files:
+            self.heroku_files_paths = [f'{self.project_name}'] * len(self.heroku_files)
+            self.heroku_files_templates = [runtime_template.substitute(runtime=self.runtime), 
+                procfile_template.substitute()
+            ]
+            self.setup_heroku_files()
 
 def console() -> None:
     kickstart_flask_app = KickstartFlaskApp()
