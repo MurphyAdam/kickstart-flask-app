@@ -110,8 +110,9 @@ config_template = Template(dedent("""\
         '''
         App name and runtime
         '''
+        PROJECT_NAME = '${project_name}'
         APP_NAME = '${app_name}'
-        APP_RUNTIME = '{runtime}'
+        APP_RUNTIME = '${runtime}'
 
         '''
         Environment variabbles
