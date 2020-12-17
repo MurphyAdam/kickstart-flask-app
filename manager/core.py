@@ -1,5 +1,9 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+from sys import version_info
+from getpass import getuser
+import os
+
 from templates import (wsgi_template,
     procfile_template,
     tests_template,
@@ -9,11 +13,6 @@ from templates import (wsgi_template,
     requirements_template, 
     config_template,
     runtime_template)
-
-from sys import version_info
-from getpass import getuser
-import os
-
 
 class KickstartFlaskApp():
 
