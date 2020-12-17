@@ -5,7 +5,7 @@ This is a simple package to kickstart a new Flask app project
 ## Install
 
 ```bash
-pip Install kickstart-flask-app
+pip install kickstart-flask-app
 ```
 
 ## Usage
