@@ -1,0 +1,3 @@
+[console_scripts]
+kickstart-flask-app = kickstart_flask_app:console
+
