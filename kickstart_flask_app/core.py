@@ -22,8 +22,8 @@ class KickstartFlaskApp():
         self.project_name: str = 'Hello-Flask'
         self.root_app_name: str = 'server'
         self.app_version: float = 1.0
-        self.description: str = 'This is a simple Flask app initiated with\
-             kickstart-flask-app Python package'
+        self.description: str = (f'This is a simple Flask app initiated with '
+                                f'kickstart-flask-app Python package')
         self.author: str = getuser()
         self.main_bp_name: str = 'main_bp'
         self.setup_heroku_deployment_files_check: str = 'yes'
@@ -126,7 +126,11 @@ class KickstartFlaskApp():
             default=self.author)
         self.main_bp_name = self.get_input(f'Main Blueprint name. Default ({self.main_bp_name})', 
             default=self.main_bp_name)
-        self.setup_heroku_deployment_files_check = self.get_input(f'Setup Heroku deployment files (yes/no). Default ({self.setup_heroku_deployment_files_check})', 
+        self.setup_heroku_deployment_files_check = self.get_input(
+            (
+                f'Setup Heroku deployment files (yes/no). Default' 
+                f'({self.setup_heroku_deployment_files_check})'
+            ), 
             default=self.setup_heroku_deployment_files_check)
         
         self.flask_files_paths = [
@@ -141,10 +145,15 @@ class KickstartFlaskApp():
 
         self.flask_files_templates = [
             wsgi_template.substitute(app_name=self.root_app_name), 
-            app_init_template.substitute(app_name=self.root_app_name, main_bp_name=self.main_bp_name) , 
-            main_bp_routes_template.substitute(app_name=self.root_app_name, main_bp_name=self.main_bp_name), 
-            main_bp_init_template.substitute(app_name=self.root_app_name, main_bp_name=self.main_bp_name), 
-            config_template.substitute(app_name=self.root_app_name, project_name=self.project_name, runtime=self.runtime, description=self.description), 
+            app_init_template.substitute(app_name=self.root_app_name, 
+                main_bp_name=self.main_bp_name) , 
+            main_bp_routes_template.substitute(app_name=self.root_app_name, 
+                main_bp_name=self.main_bp_name), 
+            main_bp_init_template.substitute(app_name=self.root_app_name, 
+                main_bp_name=self.main_bp_name), 
+            config_template.substitute(app_name=self.root_app_name, 
+                project_name=self.project_name, runtime=self.runtime, 
+                description=self.description), 
             tests_template.substitute(), 
             requirements_template.substitute()
         ]
@@ -163,7 +172,9 @@ class KickstartFlaskApp():
 
         # setup Flask templates and static dirs and files if (y)es
         if 'y'.lower() in self.setup_flask_templates_and_static_files_check:
-            self.flask_dirs_paths = [f'{self.project_name}/{self.root_app_name}'] * len(self.flask_dirs)
+            self.flask_dirs_paths = [
+                    f'{self.project_name}/{self.root_app_name}'
+                ] * len(self.flask_dirs)
             self.flask_dirs_templates = [
                 html_index.substitute(project_name=self.project_name, description=self.description), 
                 style_css.substitute()
