@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="kickstart_flask_app",
-    version="1.1.4",
+    version="1.1.5",
     description="Generate a new Flask app project.",
     license="MIT",
     author="Majdi Mahfoud",
@@ -10,7 +10,9 @@ setup(
     url="https://github.com/MurphyAdam/kickstart-flask-app",
     keywords=['Flask', 'template', 'generate'],
     packages=find_packages(),
-    install_requires=[],
+    install_requires=[
+        'flask',
+    ],
     long_description='Please refer to README for docs',
     zip_safe = False,
     entry_points={
