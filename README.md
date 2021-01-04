@@ -38,5 +38,10 @@ once you have installed the package, it also provides a command line command in 
 This, just as the Python interpreter will prompt the same. This is much quicker than importing all 
 the code yourself.
 
+## Endpoints provided
+
+`/` renders html template
+`/api` returns json data
+
 ## Github repository
 [kickstart-flask-app](https://github.com/MurphyAdam/kickstart-flask-app)
