@@ -81,7 +81,7 @@ main_bp_routes_template = Template(dedent("""\
             'message': 'Hello world!',
             'timestamp': datetime.utcnow()
         }
-        return jsonify(), 200
+        return jsonify(data), 200
 
     @${main_bp_name}.route('/')
     def index():
