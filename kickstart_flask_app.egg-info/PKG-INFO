@@ -1,6 +1,6 @@
 Metadata-Version: 1.2
 Name: kickstart-flask-app
-Version: 1.1.4
+Version: 1.1.5
 Summary: Generate a new Flask app project.
 Home-page: https://github.com/MurphyAdam/kickstart-flask-app
 Author: Majdi Mahfoud

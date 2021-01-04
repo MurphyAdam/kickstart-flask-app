@@ -8,4 +8,5 @@ kickstart_flask_app.egg-info/SOURCES.txt
 kickstart_flask_app.egg-info/dependency_links.txt
 kickstart_flask_app.egg-info/entry_points.txt
 kickstart_flask_app.egg-info/not-zip-safe
+kickstart_flask_app.egg-info/requires.txt
 kickstart_flask_app.egg-info/top_level.txt
