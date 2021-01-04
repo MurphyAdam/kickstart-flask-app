@@ -71,11 +71,21 @@ app_init_template = Template(dedent("""\
     """))
 
 main_bp_routes_template = Template(dedent("""\
+    from datetime import datetime
     from ${app_name}.${main_bp_name} import ${main_bp_name}
+    from flask import jsonify, render_template
+
+    @${main_bp_name}.route('/api')
+    def api():
+        data = {
+            'message': 'Hello world!',
+            'timestamp': datetime.utcnow()
+        }
+        return jsonify(), 200
 
     @${main_bp_name}.route('/')
-    def Hello():
-        return 'Hello world!', 200
+    def index():
+        return render_template('index.html')
 
     """))
 
@@ -113,6 +123,7 @@ config_template = Template(dedent("""\
         PROJECT_NAME = '${project_name}'
         APP_NAME = '${app_name}'
         APP_RUNTIME = '${runtime}'
+        APP_DESCRIPTION = '${description}'
 
         '''
         Environment variabbles
@@ -146,6 +157,59 @@ config_template = Template(dedent("""\
 runtime_template = Template(dedent("""\
     python-${runtime}
 
+    """))
+
+html_index = Template(dedent("""\
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <title>${project_name}</title>
+            <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css', _external=True)}}">
+        </head>
+        <body>
+            <h1>${project_name}</h1>
+            <p>${description}</p>
+            <p>
+                <a href="https://github.com/MurphyAdam/kickstart-flask-app" 
+                    alt="Github repository for kickstart-flask-app package">Github repository
+                </a>
+            </p>
+        </body>
+    </html>
+    """))
+
+style_css = Template(dedent("""\
+    html,
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+        font-size: 14px;
+    }
+
+    body {
+        background: #fafafa;
+        overflow-x: hidden;
+    }
+
+    h1 {
+        color: #4db6ac;
+        display: flex;
+        justify-content: center;
+    }
+
+    p {
+        margin: 2rem;
+        padding: 1rem;
+        display: flex;
+        justify-content: center;
+        font-size: xx-large;
+    }
+    a {
+        color: #4db6ac;
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        font-size: 1.5rem;
+    }
     """))
 
 bashrc_template = Template(dedent("""\
