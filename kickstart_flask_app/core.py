@@ -46,7 +46,7 @@ class KickstartFlaskApp():
             '__init__.py', 
             'config.py', 
             'tests.py', 
-            'requirement.txt'
+            'requirements.txt'
         ]
         self.flask_files_paths: dict = []
         self.flask_files_templates: dict = []
